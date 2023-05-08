@@ -2,8 +2,10 @@ const mongoose = require('mongoose')
 
 const medicineSchema = new mongoose.Schema({
   name: { type: String, required: true },
-  amount: { type: Number, required: true },
-  day: { type: String, required: true },
+  dose: { type: Number, required: true },
+  frequency: { type: String, required: true },
+  time: { type: String, required: true },
+  remind: { type: Boolean, required: true },
   user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
 })
 
