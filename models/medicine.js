@@ -5,7 +5,7 @@ const medicineSchema = new mongoose.Schema({
   dose: { type: Number, required: true },
   frequency: { type: String, required: true },
   time: { type: String, required: true },
-  remind: { type: Boolean, required: true },
+  active: { type: Boolean, required: true },
   user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
 })
 

@@ -28,19 +28,20 @@ exports.editMedicine = async (req, res) => {
     res.status(500).json({ message: err.message })
   }
 }
+//active, name, frequency, dose
 
-exports.removeMedicine = async (req, res) => {
-  try {
-    const medicine = await Medicine.findById(req.params.id)
-    await medicine.remove()
+// exports.removeMedicine = async (req, res) => {
+//   try {
+//     const medicine = await Medicine.findById(req.params.id)
+//     await medicine.remove()
 
-    // Remove the medicine from the user's list of medicines
-    const user = await User.findById(medicine.user)
-    user.medicines.pull(medicine)
-    await user.save()
+//     // Remove the medicine from the user's list of medicines
+//     const user = await User.findById(medicine.user)
+//     user.medicines.pull(medicine)
+//     await user.save()
 
-    res.json({ message: 'Medicine deleted' })
-  } catch (err) {
-    res.status(500).json({ message: err.message })
-  }
-}
+//     res.json({ message: 'Medicine deleted' })
+//   } catch (err) {
+//     res.status(500).json({ message: err.message })
+//   }
+

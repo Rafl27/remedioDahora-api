@@ -9,6 +9,6 @@ router.post('/:userId/medicines', medicineController.addMedicine)
 router.patch('/medicines/:id', medicineController.editMedicine)
 
 // Remove a medicine
-router.delete('/medicines/:id', medicineController.removeMedicine)
+// router.delete('/medicines/:id', medicineController.removeMedicine)
 
 module.exports = router
