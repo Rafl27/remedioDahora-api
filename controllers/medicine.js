@@ -1,4 +1,5 @@
 const Medicine = require('../models/medicine')
+const User = require('../models/user')
 
 exports.addMedicine = async (req, res) => {
   try {
@@ -19,29 +20,14 @@ exports.addMedicine = async (req, res) => {
 exports.editMedicine = async (req, res) => {
   try {
     const medicine = await Medicine.findById(req.params.id)
-    medicine.name = req.body.name
     medicine.amount = req.body.amount
-    medicine.day = req.body.day
+    medicine.frequency = req.body.frequency
+    medicine.active = req.body.active
+    medicine.dose = req.body.dose
     await medicine.save()
     res.json(medicine)
   } catch (err) {
     res.status(500).json({ message: err.message })
   }
 }
-//active, name, frequency, dose
-
-// exports.removeMedicine = async (req, res) => {
-//   try {
-//     const medicine = await Medicine.findById(req.params.id)
-//     await medicine.remove()
-
-//     // Remove the medicine from the user's list of medicines
-//     const user = await User.findById(medicine.user)
-//     user.medicines.pull(medicine)
-//     await user.save()
-
-//     res.json({ message: 'Medicine deleted' })
-//   } catch (err) {
-//     res.status(500).json({ message: err.message })
-//   }
 
